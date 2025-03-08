@@ -1,13 +1,13 @@
 #pageContainer {
     /* Container sizing */
-	width: 50vw;
-	height: 90vh;
-	border: 1px solid black;
+    width: 50vw;
+    height: 90vh;
+    border: 1px solid black;
 
     /* Container positioning */
-	margin-left: auto;
-	margin-right: auto;
-	padding: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1rem;
 }
 
 #centerContainer {
