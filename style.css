@@ -1,0 +1,88 @@
+html,body {
+    margin: 0;
+}
+
+#pageContainer {
+    /* Container sizing */
+	width: 100vw;
+	height: 100vh;
+	border: 1px solid black;
+    box-sizing: border-box;
+
+    /* Container positioning */
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#centerContainer {
+    width: 95vw;
+    height: 70vh;
+    border: 1px solid black;
+
+    /* Determines inside contents */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* Determines container position */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#imageContainer {
+    /* Container sizing */
+    width: 70%;
+    height: 95%;
+    border: 0.6rem ridge gold;
+    background-color: antiquewhite;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* Container positioning */
+    margin-left: auto;
+    margin-right: auto;
+
+    box-shadow: 10px 10px 10px lightgray;
+}
+
+#imageProperties {
+    /* Image fits to container */
+    max-width: 100%;
+    max-height: 100%;
+}
+
+#left,#right {
+    border: 6px ridge gold;
+    background-color: antiquewhite;
+    box-shadow: 10px 10px 10px lightgray;
+    width: 50px;
+    height: 50px;
+}
+
+#left:hover,#right:hover {
+    background-color: rgb(227, 211, 188);
+}
+
+h1 {
+    text-align: center;
+    font-size: 40px;
+    font-family: Quintessential;
+    font-weight: normal;
+}
+
+p {
+    font-family: Quintessential;
+}
+
+#artworkName {
+    text-align: center;
+    font-size: 28px;
+    font-style: italic;
+}
+
+#footer {
+    text-align: center;
+    font-size: 14px;
+}
