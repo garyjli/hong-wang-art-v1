@@ -1,5 +1,5 @@
 html {
-    /* formats rem sizing */
+    /* helps rem sizing */
     font-size: 62.5%;
 }
 
@@ -167,7 +167,7 @@ nav {
 
 .slider-wrapper {
     position: relative;
-    max-width: 48rem;
+    max-width: 100%;
     margin: 0 auto;
 }
 
