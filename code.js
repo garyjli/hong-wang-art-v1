@@ -1,49 +1,26 @@
-"use strict";
+const hamburger = document.querySelector(".hamburger");
+const navLinks = document.querySelector(".nav-links");
+const offScreenMenu = document.querySelector(".off-screen-menu");
+menuOpen = false;
 
-const artworks = [
-	{ filename: "a1.jpeg", name: "\"A Fishing House\"" },
-	{ filename: "a2.jpeg", name: "\"After Raining...\"" },
-	{ filename: "a3.jpeg", name: "\"Echoes of Bliss\"" },
-	{ filename: "a4.jpeg", name: "\"Ginger Pot\"" },
-	{ filename: "a5.jpeg", name: "\"Journey of Courage\"" },
-	{ filename: "a6.jpeg", name: "\"Paddling in Reflection\"" },
-	{ filename: "a7.jpeg", name: "\"Spring Field\"" },
-	{ filename: "a8.jpeg", name: "\"Whispers of Change\"" },
-	{ filename: "a9.jpeg", name: "\"向阳\"" },
-];
-const curr = document.getElementById("imageProperties");
-let idx = 0;
-
-function main() {
-    const left = document.getElementById("left");
-    const right = document.getElementById("right");
-    const image = document.getElementById("imageProperties");
-
-    left.onclick = displayPrev;
-    right.onclick = displayNext;
-    image.onclick = displayNext;
-}
-
-function displayNext() {
-    if (idx == artworks.length - 1) {
-        idx = 0;
-    } else {
-        idx++;
+window.addEventListener("resize", () => {
+    if (window.innerWidth > 768) {
+        navLinks.style.display = "flex";
+        menuOpen = false;
+    } else if (window.innerWidth <= 768 && menuOpen === false) {
+        navLinks.style.display = "none";
     }
+});
 
-    curr.setAttribute("src", "artwork/" + artworks[idx].filename);
-    document.getElementById("artworkName").textContent = artworks[idx].name;
-}
+// Only happens when window.innerWidth <= 768px
+hamburger.addEventListener("click", () => {
+    hamburger.classList.toggle("active");
+    offScreenMenu.classList.toggle("active");
 
-function displayPrev() {
-    if (idx == 0) {
-        idx = artworks.length - 1;
-    } else {
-        idx--;
+    if (menuOpen === false) {
+        menuOpen = true;
+    } else if (menuOpen === true) {
+        navLinks.style.display = "none";
+        menuOpen = false;
     }
-
-    curr.setAttribute("src", "artwork/" + artworks[idx].filename);
-    document.getElementById("artworkName").textContent = artworks[idx].name;
-}
-
-window.onload = main;
+});
