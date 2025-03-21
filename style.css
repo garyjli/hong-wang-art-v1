@@ -188,7 +188,7 @@ nav {
 .slider img {
     flex: 1 0 100%;
     scroll-snap-align: start;
-    object-fit: contain;
+    object-fit: fill;
 }
 
 .slider-nav {
