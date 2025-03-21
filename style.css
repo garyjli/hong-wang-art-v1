@@ -167,13 +167,13 @@ nav {
 
 .slider-wrapper {
     position: relative;
-    max-width: 75rem;
+    max-width: 100%;
     margin: 0 auto;
 }
 
 .slider {
     display: flex;
-    aspect-ratio: auto;
+    aspect-ratio: 19.5 / 9;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
