@@ -1,0 +1,290 @@
+html {
+    /* helps rem sizing */
+    font-size: 62.5%;
+}
+
+body {
+    /* gets rid of the default whitespace around the div */
+    margin: 0;
+    text-align: center;
+}
+
+html, body {
+    overflow-x: hidden;
+}
+
+.main-container {
+    width: 1200px;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    /* background-image: url(images/back.jpeg);
+    background-size: 100%; */
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 50px;
+    height: 40px;
+    margin-right: 16px;
+    margin-left: 20px;
+    border: 2px groove lightskyblue;
+}
+
+.logo h3 {
+    /* Removes the default surrounding space added to h3 elements. */
+    margin-top: 0;
+    margin-bottom: 0;
+    
+    color: black;
+    text-decoration: none;
+    font-size: 32px;
+    font-weight: normal;
+    font-family: "Playfair Display SC";
+}
+
+nav {
+    position: sticky;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: lightblue;
+    /* must keep this padding consistent around each side of the nav */
+    padding: 8px;
+}
+
+.nav-links {
+    /* Places links side-by-side instead of top-bottom. */
+    display: flex; 
+    align-items: center;
+}
+
+.nav-links a {
+    display: block;
+    color: black;
+    text-decoration: none;
+    font-size: 20px;
+    font-family: "Playfair Display SC";
+    transition: all ease-in-out 250ms;
+    /* Prevents border glitch. */
+    border: 2px solid transparent;
+}
+
+.nav-links a:hover {
+    background-color: rgb(187, 224, 236);
+    box-shadow: 10px 10px 10px rgb(137, 172, 184);
+    border-radius: 50px;
+    border: 2px solid lightskyblue;
+}
+
+.nav-links .nav-buttons {
+    padding: 10px 15px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+    width: 35px;
+    margin-right: 16px;
+}
+
+.hamburger .bar {
+    flex-basis: 100%;
+    height: 3px;
+    background: black;
+    margin: 3px;
+    transition: 0.3s ease;
+}
+
+.hamburger.active .bar:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 7.5px);
+}
+
+.hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active .bar:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -7.5px);
+}
+
+.off-screen-menu {
+    /* display is set to none so it's not counted as part of the page */
+    display: none;
+    padding-bottom: 20px;
+    background-color: lightblue;
+    font-size: 2rem;
+    font-family: "Playfair Display SC";
+
+    /* issue with setting position to absolute. 
+     * positioning at -450px causes it to be "part of the page" */
+    /* max-width: 450px; */
+    width: 100%;
+    /* right: -450px; */
+    position: relative;
+    /* transition: 0.3s ease; */
+}
+
+.off-screen-menu li {
+    padding: 8px;
+}
+
+.off-screen-menu a {
+    /* inline elems dont respond to width, so we need to do display: block */
+    display: block;
+    width: 85%;
+    margin: 0 auto;
+    text-align: center;
+
+    text-decoration: none;
+    color: black;
+    border: 2px solid lightskyblue;
+    border-radius: 50px;
+    background-color: rgb(187, 224, 236);
+    padding: 8px;
+}
+
+.off-screen-menu a:hover {
+    box-shadow: 5px 5px 5px rgb(137, 172, 184);
+}
+
+.off-screen-menu.active {
+    display: block;
+    /* right: 0; */
+}
+
+/*****************************************/
+
+.img-container {
+    padding: 2rem;
+}
+
+.slider-wrapper {
+    position: relative;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.slider {
+    display: flex;
+    aspect-ratio: 16 / 9;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    box-shadow: 0 1.5rem 3rem -0.75rem hsla(0, 0%, 0%, 0.25);
+    border-radius: 0.5rem;
+    
+    margin-bottom: 10rem;
+}
+
+.slider img {
+    flex: 1 0 100%;
+    scroll-snap-align: start;
+    object-fit: contain;
+}
+
+.slider-nav {
+    display: flex;
+    column-gap: 1rem;
+    position: absolute;
+    bottom: 1.25rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+.slider-nav a {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background-color: #fff;
+    opacity: 0.75;
+    transition: opacity ease 250ms;
+}
+
+.slider-nav a:hover {
+    opacity: 1;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+p {
+    font-size: 2rem;
+}
+
+@media only screen and (max-width: 768px) {
+    body {
+        text-align: center;
+    }
+
+    .hamburger {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .logo {
+        height: 80px;
+    }
+
+    .logo img {
+        width: 45px;
+        height: 35px;
+    }
+
+    .logo h3 {
+        font-size: 22px;
+    }
+
+    .nav-links {
+        display: none;
+    }
+}
+
+/* What the page looks like when orientation is landscape and width is between 0px-600px. */
+@media only screen and (max-width: 600px) and (orientation: landscape) {
+    .main-container {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 600px) and (orientation: portrait) {
+    .main-container {
+        width: 100%;
+    }
+}
+
+@media only screen and (min-width: 601px) {
+    .main-container {
+        width: 100%;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .main-container {
+        width: 100%;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .main-container {
+        width: 100%;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .main-container {
+        width: 100%;
+    }
+}
+
+/* standard: 600px, 601px, 768px, 992px, 1200px */
