@@ -9,9 +9,9 @@ body {
     text-align: center;
 }
 
-/* html, body {
+html, body {
     overflow-x: hidden;
-} */
+}
 
 .main-container {
     width: 1200px;
@@ -167,13 +167,14 @@ nav {
 
 .slider-wrapper {
     position: relative;
-    max-width: 100%;
+    max-width: 75rem;
     margin: 0 auto;
 }
 
 .slider {
     display: flex;
-    aspect-ratio: 19.5 / 9;
+    aspect-ratio: 16 / 9;
+    height: auto;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
@@ -201,11 +202,11 @@ nav {
 }
 
 .slider-nav a {
-    width: 0.5rem;
-    height: 0.5rem;
+    width: 1rem;
+    height: 1rem;
     border-radius: 50%;
-    background-color: red;
-    opacity: 0.75;
+    background-color: lightblue;
+    opacity: 0.6;
     transition: opacity ease 250ms;
 }
 
