@@ -167,14 +167,14 @@ nav {
 
 .slider-wrapper {
     position: relative;
-    max-width: 75rem;
+    width: 100%;
     margin: 0 auto;
 }
 
 .slider {
     display: flex;
-    aspect-ratio: 16 / 9;
-    height: auto;
+    /* aspect-ratio: 16 / 9; */
+    height: 20rem;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
@@ -186,14 +186,16 @@ nav {
 }
 
 .slider img {
+    /* max-width: 100%; */
+    /* height: auto; */
     flex: 1 0 100%;
     scroll-snap-align: start;
-    object-fit: fill;
+    object-fit: contain;
 }
 
 .slider-nav {
     display: flex;
-    column-gap: 1rem;
+    column-gap: 1.5rem;
     position: absolute;
     bottom: 1.25rem;
     left: 50%;
