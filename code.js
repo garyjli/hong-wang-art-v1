@@ -1,15 +1,15 @@
 const slider = document.querySelector('.slider');
 const images = document.querySelectorAll('.slider img');
 const titles = [
-    "\" A Fishing House \"", 
-    "\" After Raining... \"", 
-    "\" Echoes of Bliss \"", 
-    "\" Ginger Pot \"",
-    "\" Journey of Courage \"",
-    "\" Paddling in Reflection \"",
-    "\" Spring Field \"",
+    "\"  \"", 
+    "\" Journey of Courage \"", 
+    "\"  \"", 
+    "\"  \"",
+    "\"  \"",
+    "\"  \"",
     "\" Whispers of Change \"",
-    "\" 向阳 \""
+    "\"  \"",
+    "\"  \""
 ];
 
 let isScrolling = false; // flag to check if scrolling is happening
