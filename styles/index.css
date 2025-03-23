@@ -71,7 +71,7 @@ html, body {
 .menu .nav-links {
     display: flex;
     justify-content: center;
-    overflow-y: hidden;
+    /* overflow-y: hidden; */
 }
 
 .menu .nav-links a {
@@ -84,8 +84,8 @@ html, body {
     font-weight: 300;
     transition: color ease 250ms;
     margin: 0 4rem;
-    transform: translateY(5rem);
-    animation: appear 750ms ease-out forwards;
+    /* transform: translateY(5rem); */
+    /* animation: appear 750ms ease-out forwards; */
 }
 
 .menu .nav-links a:hover {
@@ -281,50 +281,3 @@ ul {
 }
 
 /* standard: 600px, 601px, 768px, 992px, 1200px */
-
-/* --------------------------------------------------------- */
-
-@keyframes growAndFade {
-    0% {
-        opacity: 0;
-        transform: translate(-50%, -50%) scale(0);
-    }
-    25% {
-        opacity: 0.5;
-        transform: translate(-50%, -50%) scale(0.4);
-    }
-    50% {
-        opacity: 1;
-        transform: translate(-50%, -50%) scale(0.8);
-    }
-    75% {
-        opacity: 0.5;
-        transform: translate(-50%, -50%) scale(1.2);
-    }
-    100% {
-        opacity: 0;
-        transform: translate(-50%, -50%) scale(1.6);
-    }
-}
-
-.status-message {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0);
-    background-color: rgba(0, 0, 0, 0.8);
-    color: white;
-    padding: 1.5rem 3rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    font-size: 2.5rem;
-    z-index: 1000;
-    visibility: hidden;
-}
-
-.status-message.show {
-    visibility: visible;
-    animation: growAndFade 500ms ease-out backwards;
-}

@@ -62,11 +62,6 @@ function closeModal() {
     modal.style.display = "none";
 }
 
-// -------------------------------------------------------------
-
-let autoscrollPaused = false;  // track if autoscroll is paused
-let timeoutID;  // variable to store timeout ID
-
 const autoScroll = () => {
     const imageWidth = images[0].clientWidth;  // get the width of an image
     const currScrollPosition = slider.scrollLeft; // get current scroll position
@@ -86,30 +81,4 @@ const autoScroll = () => {
     }
 };
 
-let intervalID = setInterval(autoScroll, 2500);
-
-function toggleAutoScroll() {
-    if (autoscrollPaused) {
-        intervalID = setInterval(autoScroll, 2500); // resume autoscroll
-        document.getElementById('autoscrollStatus').innerText = "▶";
-    } else {
-        clearInterval(intervalID); // pause autoscroll
-        document.getElementById('autoscrollStatus').innerText = "⏸";
-    }
-    
-    // clear previous timeout if it exists
-    if (timeoutID) {
-        clearTimeout(timeoutID);
-    }
-
-    // show pop up with fade-in effect
-    const statusMessage = document.getElementById('autoscrollStatus');
-    statusMessage.classList.add('show');
-    
-    // hide popup after 1 sec
-    timeoutID = setTimeout(() => {
-        statusMessage.classList.remove('show');
-    }, 500);
-
-    autoscrollPaused = !autoscrollPaused;
-}
+setInterval(autoScroll, 2500);
