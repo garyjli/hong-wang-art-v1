@@ -19,31 +19,54 @@ for (let i = 0; i < 3; i++) {
 let currentIndex = 0;
 
 function loadNextImage() {
+	// base case
 	if (currentIndex >= imgFilenames.length) return;
 
 	const imgName = imgFilenames[currentIndex];
 	const img = document.createElement("img");
-	img.src = `images/${imgName}`;
+
+	// data-src to store the image URL until it needs to be loaded
+	img.setAttribute("data-src", `images/${imgName}`);
 	img.style.objectFit = "contain";
 	img.onclick = () => openModal(`images/${imgName}`);
 
-	img.onload = () => {
-		img.classList.add("fade-in");
+	// add image to shortest column without loading it yet
+	const minIndex = columnHeights.indexOf(Math.min(...columnHeights));
+	columns[minIndex].appendChild(img);
 
-		// find shortest column
-		const minIndex = columnHeights.indexOf(Math.min(...columnHeights));
-		columns[minIndex].appendChild(img);
+	const observer = new IntersectionObserver(
+		(entries) => {
+			entries.forEach((entry) => {
+				if (entry.isIntersecting) {
+					// load image when it enters viewport
+					const image = entry.target;
+					image.src = image.getAttribute("data-src");
+					image.onload = () => {
+						// add animation after image is loaded
+						image.classList.add("fade-in");
 
-		// measure after render
-		requestAnimationFrame(() => {
-			const renderedHeight = img.offsetHeight;
-			columnHeights[minIndex] += renderedHeight;
-			console.log(`Image: ${imgName}, Height: ${renderedHeight}px`);
+						// get height of image and update column heights
+						requestAnimationFrame(() => {
+							const renderedHeight = image.offsetHeight;
+							columnHeights[minIndex] += renderedHeight;
+							console.log(`Image: ${imgName}, Height: ${renderedHeight}px`);
+							currentIndex++;
+							setTimeout(loadNextImage, 20);
+						});
+					};
 
-			currentIndex++;
-			setTimeout(loadNextImage, 20);
-		});
-	};
+					// stop observing after loading image
+					observer.unobserve(image);
+				}
+			});
+		},
+		{
+			rootMargin: "100px",
+		}
+	);
+
+	// start observing image
+	observer.observe(img);
 }
 
 loadNextImage();
