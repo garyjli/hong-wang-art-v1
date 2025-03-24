@@ -18,7 +18,8 @@ function createGallery(imgFilenames) {
 
 		column.forEach((image) => {
 			const img = document.createElement("img");
-			img.src = `images/${image}`;
+            img.src = `images/${image}`;
+            img.loading = "lazy";
 			img.onclick = () => openModal(`images/${image}`);
 			columnDiv.appendChild(img);
 		});
