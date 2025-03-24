@@ -49,19 +49,6 @@ window.addEventListener('resize', () => {
     console.log('Window resized, imageWidth recalculated');
 });
 
-function openModal(imgSrc) {
-    const modal = document.getElementById("imageModal");
-    const modalImage = document.getElementById("modalImage");
-    
-    modal.style.display = "block";
-    modalImage.src = imgSrc;
-}
-
-function closeModal() {
-    const modal = document.getElementById("imageModal");
-    modal.style.display = "none";
-}
-
 const autoScroll = () => {
     const imageWidth = images[0].clientWidth;  // get the width of an image
     const currScrollPosition = slider.scrollLeft; // get current scroll position

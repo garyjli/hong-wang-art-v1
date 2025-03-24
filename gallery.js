@@ -28,6 +28,8 @@ function loadNextImage() {
 	img.onclick = () => openModal(`images/${imgName}`);
 
 	img.onload = () => {
+		img.classList.add("fade-in");
+
 		// find shortest column
 		const minIndex = columnHeights.indexOf(Math.min(...columnHeights));
 		columns[minIndex].appendChild(img);
@@ -39,9 +41,22 @@ function loadNextImage() {
 			console.log(`Image: ${imgName}, Height: ${renderedHeight}px`);
 
 			currentIndex++;
-			loadNextImage();
+			setTimeout(loadNextImage, 20);
 		});
 	};
 }
 
 loadNextImage();
+
+function openModal(imgSrc) {
+	const modal = document.getElementById("imageModal");
+	const modalImage = document.getElementById("modalImage");
+
+	modal.style.display = "block";
+	modalImage.src = imgSrc;
+}
+
+function closeModal() {
+	const modal = document.getElementById("imageModal");
+	modal.style.display = "none";
+}
