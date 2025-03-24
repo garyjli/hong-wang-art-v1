@@ -15,6 +15,7 @@
 
 .box {
     display: flex;
+    /* nowrap */
     flex-wrap: nowrap;
     justify-content: center;
     /* column gap */
@@ -23,6 +24,7 @@
 
 .dream {
     display: flex;
+    /* column */
     flex-direction: column;
     /* row gap */
     gap: 1rem;
@@ -31,6 +33,7 @@
 .dream img {
     width: 40rem;
     max-width: 100%;
+    /* contain */
     object-fit: contain;
     cursor: pointer;
 }
