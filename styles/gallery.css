@@ -31,7 +31,7 @@
 }
 
 .dream img {
-    width: 40rem;
+    width: 45rem;
     max-width: 100%;
     /* contain */
     object-fit: contain;
@@ -78,12 +78,20 @@
 }
 
 @media only screen and (max-width: 768px) {
+    .gallery-container {
+        padding: 4rem 0;
+    }
+
     .box {
         gap: 0.6rem;
     }
 
     .dream {
         gap: 0.6rem;
+    }
+
+    .dream img {
+        width: 12rem;
     }
 
     .close {
