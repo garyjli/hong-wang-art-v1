@@ -1,5 +1,5 @@
 const imgFilenames = [];
-for (let i = 1; i <= 9; i++) {
+for (let i = 1; i <= 86; i++) {
 	imgFilenames.push(`a${i}.jpeg`);
 }
 
