@@ -61,7 +61,7 @@ for (let i = 0; i < 3; i++) {
 imgFilenames.forEach((imgName) => {
 	const img = document.createElement("img");
 	img.src = `images/${imgName}`;
-	img.loading = "lazy";
+	// img.loading = "lazy";
 	img.style.objectFit = "contain";
 	img.onclick = () => openModal(`images/${imgName}`);
 
