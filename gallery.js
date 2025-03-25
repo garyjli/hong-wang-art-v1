@@ -103,11 +103,16 @@ function openModal(imgSrc) {
 	const modal = document.getElementById("imageModal");
 	const modalImage = document.getElementById("modalImage");
 
+	modal.classList.remove("closing");
+
 	modal.style.display = "block";
 	modalImage.src = imgSrc;
 }
 
 function closeModal() {
 	const modal = document.getElementById("imageModal");
-	modal.style.display = "none";
+
+	modal.classList.add("closing");
+
+	// modal.style.display = "none";
 }
