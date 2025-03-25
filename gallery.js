@@ -1,3 +1,11 @@
+const box = document.querySelector(".box");
+// 3 columns for computer, 2 columns for mobile
+let numColumns = window.matchMedia("(min-width: 769px)").matches ? 3 : 2;
+const columns = [];
+const columnHeights = new Array(numColumns).fill(0);
+let currentIndex = 0;
+
+// array of strings which represents the images' filenames
 const imgFilenames = [];
 for (let i = 1; i <= 43; i++) {
 	imgFilenames.push(`a${i}.jpeg`);
@@ -6,27 +14,22 @@ for (let i = 1; i <= 41; i++) {
 	imgFilenames.push(`b${i}.jpeg`);
 }
 
-const box = document.querySelector(".box");
-const columns = [];
-const columnHeights = [0, 0, 0]; // running height per column
-
-// make 3 columns
-for (let i = 0; i < 3; i++) {
+// write the HTML to make columns
+for (let i = 0; i < numColumns; i++) {
 	const col = document.createElement("div");
 	col.classList.add("dream");
 	columns.push(col);
 	box.appendChild(col);
 }
 
-// used to load images sequentially
-let currentIndex = 0;
-
+// recursive function that loads each image sequentially in the gallery
 function loadNextImage() {
 	// base case
 	if (currentIndex >= imgFilenames.length) return;
 
 	const imgName = imgFilenames[currentIndex];
-	// create the images-div wrapper
+
+	// images-div contains the img and hover-text
 	const imagesDiv = document.createElement("div");
 	imagesDiv.classList.add("images-div");
 
