@@ -36,7 +36,7 @@
     /* contain */
     object-fit: contain;
     cursor: pointer;
-    animation: fadeIn 1.5s ease both;
+    animation: fadeIn 1s ease both;
 }
 
 @keyframes fadeIn {
