@@ -153,11 +153,8 @@ html, body {
     border-radius: 50%;
     background-color: darkgray;
     border: 1px solid lightgray;
-    opacity: 0.5;
-}
-
-.slider-nav a:hover {
-    opacity: 1;
+    opacity: 0.35;
+    transition: opacity 0.5s ease-in-out;
 }
 
 .title {

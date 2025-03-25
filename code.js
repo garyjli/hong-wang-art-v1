@@ -21,6 +21,8 @@ const getImageWidth = () => {
 	return firstImage ? firstImage.clientWidth : 0;
 };
 
+const navDots = document.querySelectorAll(".slider-nav a");
+
 slider.addEventListener("scroll", () => {
 	if (!isScrolling) {
 		isScrolling = true;
@@ -29,16 +31,23 @@ slider.addEventListener("scroll", () => {
 		timeout = setTimeout(() => {
 			const scrollPosition = slider.scrollLeft;
 			const imageWidth = getImageWidth(); // get the image width dynamically
-
 			const currentIndex = Math.round(scrollPosition / imageWidth);
 
+			// update title
 			const currentImage = images[currentIndex];
 			const currentImageId = currentImage ? currentImage.id : null;
-
 			if (currentImageId) {
 				document.getElementById("title").innerHTML = titles[currentImageId];
 				console.log(`${currentImageId}`); // debugging
 			}
+
+			navDots.forEach((dot, index) => {
+				if (index === currentIndex) {
+					dot.style.opacity = 1;
+				} else {
+					dot.style.opacity = 0.35;
+				}
+			});
 
 			isScrolling = false; // reset flag
 		}, 200); // wait after scroll to update
@@ -69,4 +78,4 @@ const autoScroll = () => {
 	}
 };
 
-setInterval(autoScroll, 3500);
+setInterval(autoScroll, 4500);
