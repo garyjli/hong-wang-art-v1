@@ -153,8 +153,8 @@ html, body {
     border-radius: 50%;
     background-color: darkgray;
     border: 1px solid lightgray;
-    opacity: 0.35;
-    transition: opacity 0.5s ease-in-out;
+    opacity: 0.3;
+    transition: opacity 0.25s ease-in-out;
 }
 
 .title {
