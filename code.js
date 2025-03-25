@@ -68,4 +68,4 @@ const autoScroll = () => {
 	}
 };
 
-setInterval(autoScroll, 2500);
+setInterval(autoScroll, 3500);
