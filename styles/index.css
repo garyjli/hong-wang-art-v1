@@ -130,10 +130,6 @@ html, body {
     -webkit-overflow-scrolling: touch;
 }
 
-.slider::-webkit-scrollbar {
-    display: none;
-}
-
 .slider img {
     /* border: 2px solid transparent; */
     flex: 1 0 100%;
@@ -271,6 +267,10 @@ ul {
 @media only screen and (min-width: 768px) {
     .main-container {
         width: 100%;
+    }
+
+    .slider::-webkit-scrollbar {
+        display: none;
     }
 }
 
