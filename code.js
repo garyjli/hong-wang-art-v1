@@ -1,15 +1,15 @@
 const slider = document.querySelector(".slider");
 const images = document.querySelectorAll(".slider img");
 const titles = [
-	'"  "',
+	'" Untitled "',
 	'" Journey of Courage "',
-	'"  "',
-	'"  "',
-	'"  "',
-	'"  "',
-	'" Whispers of Change "',
-	'"  "',
-	'"  "',
+	'" Untitled "',
+	'" Untitled "',
+	'" Untitled "',
+	'" Untitled "',
+	'" Untitled "',
+	'" Untitled "',
+	'" Untitled "',
 ];
 
 let isScrolling = false; // flag to check if scrolling is happening
@@ -54,9 +54,10 @@ const autoScroll = () => {
 	const currScrollPosition = slider.scrollLeft; // get current scroll position
 	const totalWidth = imageWidth * images.length;
 
-	if (currScrollPosition >= totalWidth - imageWidth - 1) {
+	// subtract 20 to account for scrollbar on PC
+	if (currScrollPosition >= totalWidth - imageWidth - 20) {
 		slider.scrollTo({
-			left: 0,
+			left: 1,
 			behavior: "smooth",
 		});
 	} else {

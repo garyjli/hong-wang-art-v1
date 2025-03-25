@@ -45,7 +45,7 @@ function loadNextImage() {
 	// create hover-text
 	const textOverlay = document.createElement("div");
 	textOverlay.classList.add("hover-text");
-	textOverlay.textContent = `Image ${currentIndex + 1}`; // Customize as needed
+	textOverlay.textContent = `Image ${currentIndex + 1}`;
 
 	imagesDiv.appendChild(textOverlay);
 
