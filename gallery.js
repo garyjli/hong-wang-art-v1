@@ -52,7 +52,7 @@ function loadNextImage() {
 	});
 
 	imagesDiv.addEventListener("touchend", () => {
-		img.style.filter = "";
+		img.style.filter = "brightness(100%)";
 		textOverlay.style.opacity = "0";
 	});
 
