@@ -23,16 +23,33 @@ function loadNextImage() {
 	if (currentIndex >= imgFilenames.length) return;
 
 	const imgName = imgFilenames[currentIndex];
-	const img = document.createElement("img");
 
+	// Create the images-div wrapper
+	const imagesDiv = document.createElement("div");
+	imagesDiv.classList.add("images-div");
+
+	// Create the image element
+	const img = document.createElement("img");
 	// data-src to store the image URL until it needs to be loaded
 	img.setAttribute("data-src", `images/${imgName}`);
 	img.style.objectFit = "contain";
 	img.onclick = () => openModal(`images/${imgName}`);
 
-	// add image to shortest column without loading it yet
+	// Append the image to imagesDiv
+	imagesDiv.appendChild(img);
+
+	// Add imagesDiv to the shortest column (not just the image)
 	const minIndex = columnHeights.indexOf(Math.min(...columnHeights));
-	columns[minIndex].appendChild(img);
+	columns[minIndex].appendChild(imagesDiv);
+
+	// Create the text overlay
+	const textOverlay = document.createElement("div");
+	textOverlay.classList.add("hover-text");
+	textOverlay.textContent = `Image ${currentIndex + 1}`; // Customize as needed
+
+	// Append the text overlay to imagesDiv
+	imagesDiv.appendChild(textOverlay);
+	//
 
 	const observer = new IntersectionObserver(
 		(entries) => {
