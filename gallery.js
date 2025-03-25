@@ -1,6 +1,9 @@
 const imgFilenames = [];
-for (let i = 1; i <= 86; i++) {
+for (let i = 1; i <= 43; i++) {
 	imgFilenames.push(`a${i}.jpeg`);
+}
+for (let i = 1; i <= 41; i++) {
+	imgFilenames.push(`b${i}.jpeg`);
 }
 
 const box = document.querySelector(".box");
