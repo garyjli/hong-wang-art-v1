@@ -41,6 +41,7 @@
     animation: fadeIn 1s ease both;
     position: relative;
     transform: translateY(25%);
+    will-change: transform, opacity;
 
     -webkit-user-drag: none;
     user-select: none;
