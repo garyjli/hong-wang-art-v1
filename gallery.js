@@ -103,8 +103,6 @@ function openModal(imgSrc) {
 	const modal = document.getElementById("imageModal");
 	const modalImage = document.getElementById("modalImage");
 
-	modal.classList.remove("closing");
-
 	// need this "reset" so the animation would play again on mobile
 	modal.style.display = "none";
 	modal.offsetHeight;
@@ -119,4 +117,9 @@ function closeModal() {
 	modal.classList.add("closing");
 
 	// modal.style.display = "none";
+
+	setTimeout(() => {
+		modal.classList.remove("closing");
+		modal.style.display = "none";
+	}, 600);
 }
