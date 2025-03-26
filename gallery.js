@@ -100,26 +100,18 @@ function loadNextImage() {
 loadNextImage();
 
 function openModal(imgSrc) {
-	const modal = document.getElementById("imageModal");
+	const modal = document.querySelector(".modal");
 	const modalImage = document.getElementById("modalImage");
-
-	// need this "reset" so the animation would play again on mobile
-	modal.style.display = "none";
-	modal.offsetHeight;
-
+	
+	modal.classList.remove("closing");
+	
 	modal.style.display = "block";
 	modalImage.src = imgSrc;
 }
 
 function closeModal() {
-	const modal = document.getElementById("imageModal");
+	const modal = document.querySelector(".modal");
+	const modalImage = document.getElementById("modalImage");
 
 	modal.classList.add("closing");
-
-	// modal.style.display = "none";
-
-	setTimeout(() => {
-		modal.classList.remove("closing");
-		modal.style.display = "none";
-	}, 600);
 }
