@@ -5,11 +5,12 @@
 
 .fix {
     animation: fadeIn 1s ease both;
+    overflow-y: visible;
 }
 
 @keyframes fadeIn {
     0% {
-        transform: translateY(20%);
+        transform: translateY(350%);
         opacity: 0;
     }
     100% {
