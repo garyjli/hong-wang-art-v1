@@ -104,7 +104,6 @@ function openModal(imgSrc) {
 	const modalImage = document.getElementById("modalImage");
 	
 	modal.classList.remove("closing");
-	
 	modal.style.display = "block";
 	modalImage.src = imgSrc;
 }
