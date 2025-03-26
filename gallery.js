@@ -105,6 +105,7 @@ function openModal(imgSrc) {
 
 	modal.classList.remove("closing");
 
+	// need this "reset" so the animation would play again on mobile
 	modal.style.display = "none";
 	modal.offsetHeight;
 
