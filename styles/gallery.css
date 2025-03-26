@@ -186,6 +186,7 @@
     .dream img {
         width: 18.4rem;
         transition: filter 0.25s ease;
+        animation: fadeIn 1st ease both;
     }
 
     .hover-text {
@@ -200,14 +201,4 @@
         top: 0.8rem;
         right: 1.5rem;
     }
-
-    /* @keyframes fadeIn {
-    0% {
-        opacity: 0;
-        transform: translateY(50%);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    } */
 }
