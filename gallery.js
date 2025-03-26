@@ -117,5 +117,5 @@ function closeModal() {
 	setTimeout(() => {
 		modal.classList.remove("closing");
 		modal.style.display = "none";
-	}, 500);
+	}, 250); // needs to be slightly faster than the modalClose animation time
 }
