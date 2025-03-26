@@ -50,7 +50,8 @@ function loadNextImage() {
 	// create hover-text
 	const textOverlay = document.createElement("div");
 	textOverlay.classList.add("hover-text");
-	textOverlay.textContent = `Image ${currentIndex + 1}`;
+	textOverlay.style.lineHeight = "2rem";
+	textOverlay.innerHTML = "Name: ?<br> Price: ?";
 
 	imagesDiv.appendChild(textOverlay);
 
