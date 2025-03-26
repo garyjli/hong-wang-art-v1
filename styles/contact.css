@@ -10,7 +10,7 @@
 
 @keyframes fadeIn {
     0% {
-        transform: translateY(350%);
+        transform: translateY(200%);
         opacity: 0;
     }
     100% {
