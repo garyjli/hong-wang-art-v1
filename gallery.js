@@ -105,6 +105,9 @@ function openModal(imgSrc) {
 
 	modal.classList.remove("closing");
 
+	modal.style.display = "none";
+	modal.offsetHeight;
+
 	modal.style.display = "block";
 	modalImage.src = imgSrc;
 }
