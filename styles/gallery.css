@@ -86,7 +86,7 @@
     width: 100%;
     /* height: 100vh; */
     overflow-y: auto;
-    animation: modalOpen 0.2s ease both;
+    animation: modalOpen 0.3s ease both;
 }
 
 .modal-img-container {
