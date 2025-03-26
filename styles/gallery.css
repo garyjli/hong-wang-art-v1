@@ -6,7 +6,7 @@
 .gallery-container {
     border: 2px solid transparent;
     margin: 0 auto;
-    padding: 5rem 0;
+    padding: 4.85rem 0;
     box-sizing: border-box;
     width: 100%;
     display: flex;
@@ -39,6 +39,9 @@
     transition: filter 0.5s ease;
     animation: fadeIn 1s ease both;
     position: relative;
+
+    -webkit-user-drag: none;
+    user-select: none;
 }
 
 .dream img:hover {
@@ -103,6 +106,10 @@
     object-fit: contain;
     display: block;
     animation: modalImg 0.3s ease both;
+
+    pointer-events: none;
+    -webkit-user-drag: none;
+    user-select: none;
 }
 
 .close {

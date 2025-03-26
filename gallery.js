@@ -5,6 +5,8 @@ const columns = [];
 const columnHeights = new Array(numColumns).fill(0);
 let currentIndex = 0;
 
+document.addEventListener("contextmenu", (event) => event.preventDefault());
+
 // array of strings which represents the images' filenames
 const imgFilenames = [];
 for (let i = 1; i <= 43; i++) {
