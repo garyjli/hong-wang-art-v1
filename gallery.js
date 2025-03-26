@@ -103,7 +103,7 @@ function openModal(imgSrc) {
 	const modal = document.querySelector(".modal");
 	const modalImage = document.getElementById("modalImage");
 	
-	modal.classList.remove("closing");
+	// modal.classList.remove("closing");
 	modal.style.display = "block";
 	modalImage.src = imgSrc;
 }
@@ -113,4 +113,9 @@ function closeModal() {
 	const modalImage = document.getElementById("modalImage");
 
 	modal.classList.add("closing");
+	
+	setTimeout(() => {
+		modal.classList.remove("closing");
+		modal.style.display = "none";
+	}, 500);
 }
