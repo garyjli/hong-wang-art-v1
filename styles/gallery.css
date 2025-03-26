@@ -179,4 +179,16 @@
         top: 0.8rem;
         right: 1.5rem;
     }
+
+    .modal.closing {
+        animation: modalClose 0.5s ease both;
+    }
+
+    .modal {
+        animation: modalAnimation 0.25s ease both;
+    }
+
+    #modalImage {
+        animation: modalImgAnimation 0.5s ease both;
+    }
 }
