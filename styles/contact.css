@@ -2,3 +2,18 @@
     color: lightskyblue;
     text-decoration: underline;
 }
+
+.fix {
+    animation: fadeIn 1s ease both;
+}
+
+@keyframes fadeIn {
+    0% {
+        transform: translateY(25%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

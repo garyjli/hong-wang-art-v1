@@ -21,6 +21,7 @@ html, body {
     padding: 0.5rem;
     margin: 0;
     box-sizing: border-box;
+    overflow-y: hidden;
 }
 
 .logo {
@@ -112,9 +113,11 @@ html, body {
 
 @keyframes fadeIn {
     0% {
+        transform: translateY(20%);
         opacity: 0;
     }
     100% {
+        transform: translateY(0);
         opacity: 1;
     }
 }

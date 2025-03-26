@@ -50,7 +50,6 @@ function loadNextImage() {
 	// create hover-text
 	const textOverlay = document.createElement("div");
 	textOverlay.classList.add("hover-text");
-	textOverlay.style.lineHeight = "2rem";
 	textOverlay.innerHTML = "Name: ?<br> Price: ?";
 
 	imagesDiv.appendChild(textOverlay);
@@ -74,7 +73,7 @@ function loadNextImage() {
 					image.src = image.getAttribute("data-src");
 					image.onload = () => {
 						// add animation after image is loaded
-						image.classList.add("fade-in");
+						// image.classList.add("fade-in");
 
 						// get height of image and update column heights
 						requestAnimationFrame(() => {

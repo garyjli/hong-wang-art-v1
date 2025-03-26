@@ -11,6 +11,7 @@
     width: 100%;
     display: flex;
     justify-content: center;
+    overflow-y: hidden;
 }
 
 .box {
@@ -45,9 +46,10 @@
 }
 
 .dream img:hover {
-    filter: brightness(50%);
+    filter: brightness(40%);
 }
 
+/* holds the img and hover-text */
 .images-div {
     position: relative;
 }
@@ -56,26 +58,39 @@
     position: absolute;
     margin: 0;
     padding: 0;
-    bottom: 2.7rem;
-    left: 2.2rem;
+    bottom: 2.5rem;
+    left: 2.4rem;
     color: white;
     font-size: 1.4rem;
     font-family: "Raleway", sans-serif;
     font-weight: 300;
     opacity: 0;
     transition: opacity 0.5s ease;
+    line-height: 3rem;
+    animation: translateHoverText 1s ease both;
 }
 
 .images-div:hover .hover-text {
     opacity: 1;
 }
 
+@keyframes translateHoverText {
+    0% {
+        transform: translateY(200%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
 @keyframes fadeIn {
     0% {
         opacity: 0;
+        transform: translateY(25%);
     }
     100% {
         opacity: 1;
+        transform: translateY(0);
     }
 }
 
@@ -169,7 +184,7 @@
     }
 
     .dream img {
-        width: 18rem;
+        width: 18.4rem;
         transition: filter 0.25s ease;
     }
 
@@ -178,10 +193,22 @@
         left: 1.2rem;
         bottom: 1.3rem;
         transition: opacity 0.25s ease;
+        line-height: 2rem;
     }
 
     .close {
         top: 0.8rem;
         right: 1.5rem;
     }
+
+    @keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(50%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 }
