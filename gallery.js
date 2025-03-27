@@ -1,6 +1,6 @@
 const box = document.querySelector(".box");
 // 3 columns for computer, 2 columns for mobile
-let numColumns = window.matchMedia("(min-width: 769px)").matches ? 3 : 2;
+let numColumns = window.matchMedia("(min-width: 769px)").matches ? 3 : 1;
 const columns = [];
 const columnHeights = new Array(numColumns).fill(0);
 let currentIndex = 0;
@@ -50,7 +50,7 @@ function loadNextImage() {
 	// create hover-text
 	const textOverlay = document.createElement("div");
 	textOverlay.classList.add("hover-text");
-	textOverlay.innerHTML = "Name: ?<br> Price: ?";
+	textOverlay.innerHTML = "Title: ?<br> Price: ?";
 
 	imagesDiv.appendChild(textOverlay);
 
@@ -63,6 +63,13 @@ function loadNextImage() {
 		img.style.filter = "brightness(100%)";
 		textOverlay.style.opacity = "0";
 	});
+
+	// create hover-text
+	const artworkInfo = document.createElement("div");
+	artworkInfo.classList.add("artwork-info");
+	artworkInfo.innerHTML = "<strong>Title</strong><br> ? x ? centimeters, oil (?) on canvas, 2024 (?)";
+
+	imagesDiv.appendChild(artworkInfo);
 
 	const observer = new IntersectionObserver(
 		(entries) => {
