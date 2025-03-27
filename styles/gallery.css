@@ -38,7 +38,7 @@
     object-fit: contain;
     cursor: pointer;
     transition: filter 0.5s ease;
-    animation: fadeIn 1s ease both;
+    animation: imgAnimation 1s ease both;
     position: relative;
     transform: translateY(25%);
     will-change: transform, opacity;
@@ -69,31 +69,11 @@
     opacity: 0;
     transition: opacity 0.5s ease;
     line-height: 3rem;
-    animation: translateHoverText 1s ease both;
+    animation: hovertextAnimation 1s ease both;
 }
 
 .images-div:hover .hover-text {
     opacity: 1;
-}
-
-@keyframes translateHoverText {
-    0% {
-        transform: translateY(200%);
-    }
-    100% {
-        transform: translateY(0);
-    }
-}
-
-@keyframes fadeIn {
-    0% {
-        transform: translateY(25%);
-        /* opacity: 0; */
-    }
-    100% {
-        transform: translateY(0);
-        /* opacity: 1; */
-    }
 }
 
 .modal {
@@ -123,7 +103,7 @@
     object-fit: contain;
     display: block;
     animation: modalImg 0.3s ease both;
-
+    /* prevent right click image saving on mobile */
     pointer-events: none;
     -webkit-user-drag: none;
     user-select: none;
@@ -139,6 +119,32 @@
     font-weight: 300;
     cursor: pointer;
     z-index: 1000;
+}
+
+.modal.closing {
+    animation: modalClose 0.3s ease both;
+}
+
+/* --------------------------------------------------------------- */
+
+@keyframes hovertextAnimation {
+    0% {
+        transform: translateY(200%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes imgAnimation {
+    0% {
+        transform: translateY(20%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
 @keyframes modalImg {
@@ -168,9 +174,7 @@
     }
 }
 
-.modal.closing {
-    animation: modalClose 0.3s ease both;
-}
+/* --------------------------------------------------------------- */
 
 @media only screen and (max-width: 768px) {
     .gallery-container {
@@ -188,7 +192,6 @@
     .dream img {
         width: 18.4rem;
         transition: filter 0.25s ease;
-        animation: fadeIn 1st ease both;
     }
 
     .hover-text {

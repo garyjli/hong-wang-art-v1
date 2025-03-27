@@ -48,16 +48,7 @@ html, body {
     padding: 0;
     margin: 0;
     transition: opacity ease 250ms;
-    animation: appear 1s ease-out forwards;
-}
-
-@keyframes appear {
-    0% {
-        transform: translateY(125%);
-    }
-    100% {
-        transform: translateY(0);
-    }
+    animation: logoAnimation 1s ease-out forwards;
 }
 
 .logo h3:hover {
@@ -91,8 +82,6 @@ html, body {
     font-weight: 300;
     transition: color ease 250ms;
     margin: 0 4rem;
-    /* transform: translateY(5rem); */
-    /* animation: appear 750ms ease-out forwards; */
 }
 
 .menu .nav-links a:hover {
@@ -106,28 +95,13 @@ html, body {
     justify-content: center;
     align-items: center;
     text-align: center;
-    /* NEEDED FOR PAUSE/PLAY POP UP */
-    /* position: relative; */
-    animation: fadeIn 1s ease both;
-}
-
-@keyframes fadeIn {
-    0% {
-        transform: translateY(20%);
-        opacity: 0;
-    }
-    100% {
-        transform: translateY(0);
-        opacity: 1;
-    }
+    animation: sliderAnimation 1s ease-out forwards;
 }
 
 .slider-wrapper {
     border: 1px solid transparent;
     width: 95%;
     margin: 0 auto;
-    /* NEEDED FOR PAUSE/PLAY POP UP */
-    /* position: relative; */
 }
 
 .slider {
@@ -210,6 +184,28 @@ ul {
     font-weight: 300;
     font-size: 1.5rem;
 }
+
+/* --------------------------------------------------------------- */
+
+@keyframes logoAnimation {
+    0% {
+        transform: translateY(125%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes sliderAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* --------------------------------------------------------------- */
 
 @media only screen and (max-width: 768px) {
     .main-container {
