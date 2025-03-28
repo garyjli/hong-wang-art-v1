@@ -54,15 +54,15 @@ function loadNextImage() {
 
 	imagesDiv.appendChild(textOverlay);
 
-	imagesDiv.addEventListener("touchstart", () => {
-		img.style.filter = "brightness(50%)";
-		textOverlay.style.opacity = "1";
-	});
+	// imagesDiv.addEventListener("touchstart", () => {
+	// 	img.style.filter = "brightness(50%)";
+	// 	textOverlay.style.opacity = "1";
+	// });
 
-	imagesDiv.addEventListener("touchend", () => {
-		img.style.filter = "brightness(100%)";
-		textOverlay.style.opacity = "0";
-	});
+	// imagesDiv.addEventListener("touchend", () => {
+	// 	img.style.filter = "brightness(100%)";
+	// 	textOverlay.style.opacity = "0";
+	// });
 
 	// create hover-text
 	const artworkInfo = document.createElement("div");

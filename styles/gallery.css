@@ -37,16 +37,11 @@
     /* contain */
     object-fit: contain;
     cursor: pointer;
-    transition: filter 0.5s ease;
     animation: imgAnimation 1s ease both;
     position: relative;
     -webkit-user-drag: none;
     user-select: none;
     padding-bottom: 0.6rem;
-}
-
-.dream img:hover {
-    filter: brightness(40%);
 }
 
 /* holds the img and hover-text */
@@ -67,7 +62,6 @@
     opacity: 0;
     transition: opacity 0.5s ease;
     line-height: 2.5rem;
-    animation: hovertextAnimation 1s ease both;
 }
 
 .images-div:hover .hover-text {
@@ -79,6 +73,7 @@
     font-family: "Raleway", sans-serif;
     font-weight: 300;
     line-height: 2rem;
+    /* should be same time span as .dream img animation */
     animation: imgAnimation 1s ease both;
 }
 
@@ -92,7 +87,7 @@
     width: 100%;
     /* height: 100vh; */
     overflow-y: auto;
-    animation: modalOpen 0.3s ease both;
+    animation: modalOpen 0.2s ease both;
 }
 
 .modal-img-container {
@@ -135,18 +130,16 @@
 
 @keyframes imgAnimation {
     0% {
-        transform: translateY(20%);
         opacity: 0;
     }
     100% {
-        transform: translateY(0);
         opacity: 1;
     }
 }
 
 @keyframes modalImg {
     0% {
-        transform: scale(0);
+        transform: scale(0.4);
     }
     100% {
         transform: scale(1);
@@ -173,6 +166,7 @@
 
 /* --------------------------------------------------------------- */
 
+/* on mobile */
 @media only screen and (max-width: 768px) {
     .gallery-container {
         padding: 4rem 0;
@@ -192,39 +186,32 @@
     }
 
     .hover-text {
-        font-size: 1.6rem;
+        display: none;
+
+        /* font-size: 1.6rem;
         left: 1.8rem;
         bottom: 6.5rem;
         transition: opacity 0.25s ease;
-        line-height: 2.8rem;
+        line-height: 2.8rem; */
     }
 
     .close {
         top: 0.8rem;
         right: 1.5rem;
     }
-
-    @keyframes imgAnimation {
-        0% {
-            opacity: 0;
-        }
-        100% {
-            opacity: 1;
-        }
-    }
 }
 
+/* on pc */
 @media only screen and (min-width: 769px) {
     .artwork-info {
         display: none;
     }
 
-    @keyframes hovertextAnimation {
-        0% {
-            transform: translateY(200%);
-        }
-        100% {
-            transform: translateY(0);
-        }
+    .dream img {
+        transition: filter 0.5s ease;
+    }
+
+    .dream img:hover {
+        filter: brightness(40%);
     }
 }
