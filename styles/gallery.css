@@ -46,6 +46,7 @@
 
 /* holds the img and hover-text */
 .images-div {
+    /* border: 1px solid black; */
     position: relative;
 }
 
@@ -177,7 +178,7 @@
     }
 
     .dream {
-        gap: 2.2rem;
+        gap: 2.4rem;
     }
 
     .dream img {

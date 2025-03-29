@@ -1,13 +1,15 @@
 const box = document.querySelector(".box");
-// 3 columns for computer, 2 columns for mobile
+// 3 columns for computer, 2 columns for mobile. Only calculated on page load, not dynamic.
 let numColumns = window.matchMedia("(min-width: 769px)").matches ? 3 : 1;
 const columns = [];
+// [0, 0, 0] or [0]
 const columnHeights = new Array(numColumns).fill(0);
 let currentIndex = 0;
 
+// Disables the right-click menu on the page
 document.addEventListener("contextmenu", (event) => event.preventDefault());
 
-// array of strings which represents the images' filenames
+// array of strings which represent the images' filenames
 const imgFilenames = [];
 for (let i = 1; i <= 43; i++) {
 	imgFilenames.push(`a${i}.jpeg`);
@@ -16,13 +18,21 @@ for (let i = 1; i <= 41; i++) {
 	imgFilenames.push(`b${i}.jpeg`);
 }
 
-// write the HTML to make columns
+// writes the HTML to make columns
+// for each column, this writes: <div class="dream"> </div>
 for (let i = 0; i < numColumns; i++) {
 	const col = document.createElement("div");
 	col.classList.add("dream");
 	columns.push(col);
 	box.appendChild(col);
 }
+
+const artworks = [
+	{
+		title: "Untitled",
+		dimensions: "? x ? centimeters"
+	}
+]
 
 // recursive function that loads each image sequentially in the gallery
 function loadNextImage() {
