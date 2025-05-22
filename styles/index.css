@@ -47,6 +47,7 @@ html, body {
     font-weight: 300;
     padding: 0;
     margin: 0;
+    /* transition for when you hover the mouse over */
     transition: opacity ease 250ms;
     animation: logoAnimation 1s ease-out forwards;
 }
@@ -69,7 +70,7 @@ html, body {
 .menu .nav-links {
     display: flex;
     justify-content: center;
-    /* overflow-y: hidden; */
+    overflow-y: hidden;
 }
 
 .menu .nav-links a {
@@ -80,11 +81,14 @@ html, body {
     font-size: 1.6rem;
     font-family: "Raleway", sans-serif;
     font-weight: 300;
-    transition: color ease 250ms;
     margin: 0 4rem;
+
+    transition: opacity ease 250ms;
+    animation: logoAnimation 1s ease-out forwards;
 }
 
 .menu .nav-links a:hover {
+    transition: color ease 250ms;
     color: lightskyblue;
 }
 
@@ -189,7 +193,7 @@ ul {
 
 @keyframes logoAnimation {
     0% {
-        transform: translateY(125%);
+        transform: translateY(200%);
     }
     100% {
         transform: translateY(0);
