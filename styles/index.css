@@ -62,6 +62,16 @@ html, body {
     margin: 0;
 }
 
+.home-favicon-img {
+    width: 2rem;
+    height: 2rem;
+}
+
+.cart-favicon-img {
+    width: 2rem;
+    height: 2rem;
+}
+
 #featured-link {
     color: lightskyblue;
     text-decoration: underline;
@@ -81,9 +91,8 @@ html, body {
     font-size: 1.6rem;
     font-family: "Raleway", sans-serif;
     font-weight: 300;
-    margin: 0 4rem;
-
-    transition: opacity ease 250ms;
+    margin: 0 3rem;
+    transition: opacity ease 250ms; /* what is this transition used for??? */
     animation: logoAnimation 1s ease-out forwards;
 }
 
