@@ -1,26 +1,29 @@
 .shopping-container {
-    border: 1px solid green;
+    border: 1px solid transparent;
     padding-top: 5rem;
     margin-right: auto;
     margin-left: auto;
 
-    width: 70vw;
+    width: 80vw;
     height: 70vh;
+
+    animation: fadeIn 1.5s ease both;
 }
 
 .items-wrapper {
-    border: 1px solid blue;
+    border: 1px solid transparent;
     display: flex;
     width: 60%;
     height: 95%;
     margin: 0 auto;
     justify-content: center;
     align-items: center;
-    gap: 10rem;
+    gap: 3rem;
     /* overflow: hidden; */
 }
 
 .items {
+    /* border: 2px solid lightgray; */
     height: 95%;
     width: 90%;
     box-shadow: 0 1.5rem 3rem -0.75rem hsla(0, 0%, 0%, 0.25);
@@ -28,7 +31,23 @@
 }
 
 .details {
+    box-sizing: border-box; /* includes padding calculation INSIDE of specified height */
+    /* border: 2px solid lightgray; */
+    height: 95%;
+    width: auto;
+    padding: 5rem;
+    box-shadow: 0 1.5rem 3rem -0.75rem hsla(0, 0%, 0%, 0.25);
+    border-radius: 0.5rem;
     font-family: "Raleway", sans-serif;
     font-weight: 300;
     font-size: 2rem;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
