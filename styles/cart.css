@@ -3,6 +3,7 @@
     padding-top: 5rem;
     margin-right: auto;
     margin-left: auto;
+    margin-bottom: 3rem;
 
     width: 80vw;
     height: 70vh;
@@ -19,7 +20,6 @@
     justify-content: center;
     align-items: center;
     gap: 4rem;
-    /* overflow: hidden; */
 }
 
 .items {
@@ -49,5 +49,31 @@
     }
     100% {
         opacity: 1;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .shopping-container {
+        width: 95vw;
+        height: 90vh;
+        padding-top: 3rem;
+        justify-items: center;
+    }
+
+    .items-wrapper {
+        display: block;
+        justify-items: center;
+        width: 95%;
+    }
+
+    .items {
+        width: 95%;
+        height: 70%
+    }
+
+    .details {
+        margin-top: 3rem;
+        width: 95%;
+        height: 25%
     }
 }

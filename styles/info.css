@@ -119,3 +119,31 @@
         opacity: 1;
     }
 }
+
+@media only screen and (max-width: 768px) {
+    .info-container {
+        flex-direction: column;
+        width: 95vw;
+        height: 163vh;
+        align-items: center;
+        margin-top: 3rem;
+        gap: 3rem;
+    }
+
+    .info-img {
+        width: 90%;
+    }
+
+    .info-text {
+        width: 90%;
+        font-size: 1.5rem;
+        line-height: 2.5rem;
+        padding: 1.5rem;
+    }
+
+    .awards-container {
+        width: 86vw;
+        height: 30vh;
+        margin-bottom: 5rem;
+    }
+}
