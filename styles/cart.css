@@ -1,0 +1,34 @@
+.shopping-container {
+    border: 1px solid green;
+    padding-top: 5rem;
+    margin-right: auto;
+    margin-left: auto;
+
+    width: 70vw;
+    height: 70vh;
+}
+
+.items-wrapper {
+    border: 1px solid blue;
+    display: flex;
+    width: 60%;
+    height: 95%;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    gap: 10rem;
+    /* overflow: hidden; */
+}
+
+.items {
+    height: 95%;
+    width: 90%;
+    box-shadow: 0 1.5rem 3rem -0.75rem hsla(0, 0%, 0%, 0.25);
+    border-radius: 0.5rem;
+}
+
+.details {
+    font-family: "Raleway", sans-serif;
+    font-weight: 300;
+    font-size: 2rem;
+}
