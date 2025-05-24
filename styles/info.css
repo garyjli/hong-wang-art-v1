@@ -9,52 +9,88 @@
     margin-bottom: 3rem;
     margin-left: auto; /* for centering */
     margin-right: auto;
-    width: 70vw;
-    height: 100%;
+    width: 130rem;
+    height: 50rem;
     display: flex;
     flex-direction: row;
     gap: 4rem;
-    
     animation: sliderAnimation 1.5s ease both; /* shouldn't be called this */
-    overflow-y: visible;
 }
 
 .info-img {
-    border: 1px solid black;
+    border: 1px solid transparent;
     width: 300rem;
-    height: 42rem;
+    height: auto;
+    box-shadow: 0 1.5rem 3rem -0.75rem hsla(0, 0%, 0%, 0.25);
+    border-radius: 0.5rem;
+}
+
+.info-img img {
+    width: 100%;
+    height: 100%;
+    border-radius: 0.5rem;
+    box-shadow: 0 1.5rem 3rem -0.75rem hsla(0, 0%, 0%, 0.25);
 }
 
 .info-text {
+    border: 1px solid lightgray;
     font-family: "Raleway", sans-serif;
     font-weight: 300;
-    font-size: 1.5rem;
+    font-size: 1.6rem;
 
     margin: 0;
-    padding: 0;
+    padding: 2rem;
 
-    line-height: 2.5rem;
+    height: 100%;
+    line-height: 3rem;
+
+    box-shadow: 0 1.5rem 3rem -0.75rem hsla(0, 0%, 0%, 0.25);
+    border-radius: 0.5rem;
+    box-sizing: border-box;
 }
 
 .awards-container {
-    border: 1px solid transparent;
+    border: 1px solid lightgray;
+    box-sizing: border-box;
+
+    width: 130rem;
+    height: 20rem;
+
+    margin-top: 4rem;
+    margin-bottom: 6rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 3rem;
+
     align-items: center;
     text-align: center;
-    margin-bottom: 6rem;
+
     animation: sliderAnimation 1.5s ease both; /* shouldn't be called this */
+
+    box-shadow: 0 1.5rem 3rem -0.75rem hsla(0, 0%, 0%, 0.25);
+    border-radius: 0.5rem;
 }
 
 .awards-container h3 {
+    border: 1px solid transparent;
+
     color: black;
-    font-size: 3rem;
+
+    font-size: 3.5rem;
     text-transform: uppercase;
     font-family: "Raleway", sans-serif;
     font-weight: 300;
+
     padding: 0;
+
+    margin-top: 0;
     margin-bottom: 3rem;
 }
 
 .awards-container p {
+    border: 1px solid transparent;
+    /* display: inline-block; */
+
     font-family: "Raleway", sans-serif;
     font-weight: 300;
     font-size: 1.5rem;
