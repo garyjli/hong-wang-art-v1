@@ -4,16 +4,20 @@
 }
 
 .info-container {
-    border: 1px solid transparent;
-    margin-top: 5rem;
-    margin-bottom: 3rem;
-    margin-left: auto; /* for centering */
-    margin-right: auto;
-    width: 130rem;
-    height: 50rem;
+    border: 1px solid blue;
+
     display: flex;
     flex-direction: row;
     gap: 4rem;
+
+    margin-top: 5rem;
+    margin-bottom: 3rem;
+    margin-left: auto;
+    margin-right: auto;
+
+    width: 130rem;
+    height: 50rem;
+
     animation: sliderAnimation 1.5s ease both; /* shouldn't be called this */
 }
 
@@ -122,12 +126,21 @@
 
 @media only screen and (max-width: 768px) {
     .info-container {
+        border: 1px solid blue;
+
         flex-direction: column;
-        width: 95vw;
-        height: 163vh;
         align-items: center;
-        margin-top: 3rem;
         gap: 3rem;
+
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+        margin-left: auto;
+        margin-right: auto;
+
+        width: 95vw;
+        height: auto;
+
+        animation: sliderAnimation 1.5s ease both; /* shouldn't be called this */
     }
 
     .info-img {

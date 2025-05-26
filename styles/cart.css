@@ -54,6 +54,8 @@
 
 @media only screen and (max-width: 768px) {
     .shopping-container {
+        border: 1px solid red;
+
         width: 95vw;
         height: 90vh;
         padding-top: 3rem;
