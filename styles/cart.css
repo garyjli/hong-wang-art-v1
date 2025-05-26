@@ -24,10 +24,22 @@
 
 .items {
     border: 1px solid lightgray;
+
     height: 95%;
-    width: 60%;
+    width: 55%;
+    box-sizing: border-box;
     box-shadow: 0 1.5rem 3rem -0.75rem hsla(0, 0%, 0%, 0.25);
     border-radius: 0.5rem;
+    padding: 5rem;
+}
+
+.items p {
+    font-family: "Raleway", sans-serif;
+    font-weight: 300;
+    font-size: 2rem;
+
+    margin: 0;
+    padding: 0;
 }
 
 .details {
@@ -57,25 +69,32 @@
         border: 1px solid red;
 
         width: 95vw;
-        height: 90vh;
+        height: auto;
         padding-top: 3rem;
-        justify-items: center;
     }
 
     .items-wrapper {
-        display: block;
-        justify-items: center;
+        border: 1px solid green;
+
+        flex-direction: column;
+        align-items: center;
         width: 95%;
     }
 
     .items {
         width: 95%;
-        height: 70%
+        height: 70%;
+    }
+
+    .items p {
+        font-size: 1.5rem;
     }
 
     .details {
-        margin-top: 3rem;
+        /* why is there space above? */
+        margin-top: -1rem;
         width: 95%;
-        height: 25%
+        height: 25%;
+        font-size: 1.5rem;
     }
 }
