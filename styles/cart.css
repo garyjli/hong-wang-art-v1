@@ -66,7 +66,7 @@
 
 @media only screen and (max-width: 768px) {
     .shopping-container {
-        border: 1px solid red;
+        border: 1px solid transparent;
 
         width: 95vw;
         height: auto;
@@ -74,7 +74,7 @@
     }
 
     .items-wrapper {
-        border: 1px solid green;
+        border: 1px solid transparent;
 
         flex-direction: column;
         align-items: center;
