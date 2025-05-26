@@ -4,7 +4,7 @@
 }
 
 .info-container {
-    border: 1px solid blue;
+    border: 1px solid transparent;
 
     display: flex;
     flex-direction: row;
@@ -32,6 +32,10 @@
 .info-img img {
     width: 100%;
     height: 100%;
+
+    /* without setting it to block, there will be small gap between the bottom of div and img */
+    display: block; 
+
     border-radius: 0.5rem;
     box-shadow: 0 1.5rem 3rem -0.75rem hsla(0, 0%, 0%, 0.25);
 }
@@ -44,6 +48,7 @@
 
     margin: 0;
     padding: 2rem;
+    /* text-align: justify; */
 
     height: 100%;
     line-height: 3rem;
@@ -126,7 +131,7 @@
 
 @media only screen and (max-width: 768px) {
     .info-container {
-        border: 1px solid blue;
+        border: 1px solid transparent;
 
         flex-direction: column;
         align-items: center;
@@ -144,30 +149,50 @@
     }
 
     .info-img {
-        width: 90%;
+        border: 1px solid transparent;
+
+        width: 85%;
+        height: auto;
+
+        box-shadow: 0 1.5rem 3rem -0.75rem hsla(0, 0%, 0%, 0.25);
+        border-radius: 0.5rem;
     }
 
     .info-text {
-        border: 1px solid red;
+        border: 1px solid transparent;
 
         box-shadow: none;
         border-radius: 0;
 
-        width: 90%;
-        font-size: 1.5rem;
+        width: 85%;
+        /* margin-top: -0.5rem; why is there even space here? */
+        font-size: 1.6rem;
         line-height: 2.5rem;
-        padding: 1.5rem;
+        padding: 0.5rem;
     }
 
     .awards-container {
-        border: 1px solid green;
+        border: 1px solid transparent;
 
         box-shadow: none;
         border-radius: 0;
 
-        width: 86vw;
-        height: 30vh;
-        margin-bottom: 5rem;
-        margin-top: 3rem;
+        width: 80%;
+        height: auto;
+        margin-bottom: 8rem;
+        margin-top: 4rem;
+        padding: 0;
+    }
+
+    .awards-container p {
+        border: 1px solid transparent;
+        /* display: inline-block; */
+
+        font-family: "Raleway", sans-serif;
+        font-weight: 300;
+        font-size: 1.6rem;
+
+        margin: 0;
+        padding: 0;
     }
 }
