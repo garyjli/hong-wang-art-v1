@@ -1,25 +1,26 @@
-const box = document.querySelector(".box");
-// 3 columns for computer, 2 columns for mobile. Only calculated on page load, not dynamic.
+// 3 columns on PC, 1 column on mobile.
+// Calculated on page load, not dynamic.
 let numColumns = window.matchMedia("(min-width: 769px)").matches ? 3 : 1;
+const box = document.querySelector(".box");
+
+// Array that will be used to contain references to the gallery's DOM elements.
+// Any change to a DOM element in this array WILL BE REFLECTED in the actual HTML.
 const columns = [];
-// [0, 0, 0] or [0]
-const columnHeights = new Array(numColumns).fill(0);
-let currentIndex = 0;
+
+// "columnHeights" is an array of size 3 or 1 (depending on the number of columns of the gallery).
+// It keeps track of each column's pixel height at any instance in time as the gallery loads.
+// This allows it to determine which column the next image should be loaded / placed in.
+const columnHeights = new Array(numColumns).fill(0); // [0, 0, 0] or [0]
 
 // Disables the right-click menu on the page
 document.addEventListener("contextmenu", (event) => event.preventDefault());
 
-// array of strings which represent the images' filenames
-const imgFilenames = [];
-for (let i = 1; i <= 43; i++) {
-	imgFilenames.push(`a${i}.jpeg`);
-}
-for (let i = 1; i <= 41; i++) {
-	imgFilenames.push(`b${i}.jpeg`);
-}
-
-// writes the HTML to make columns
-// for each column, this writes: <div class="dream"> </div>
+// For each column, this writes (in gallery.html):
+// 		<div class="dream">
+//
+// 		</div>
+// And also appends it to the "columns" array as a reference.
+// Modifying "col" in "columns" will reflect in the actual HTML.
 for (let i = 0; i < numColumns; i++) {
 	const col = document.createElement("div");
 	col.classList.add("dream");
@@ -27,42 +28,58 @@ for (let i = 0; i < numColumns; i++) {
 	box.appendChild(col);
 }
 
-const artworks = [
-	{
-		title: "Untitled",
-		dimensions: "? x ? centimeters"
-	}
-]
+// Used by the function below, loadNextImage()
+let currentIndex = 0;
 
-// recursive function that loads each image sequentially in the gallery
-function loadNextImage() {
-	// base case
-	if (currentIndex >= imgFilenames.length) return;
+// Recursive function that takes an array of artwork objects, 
+// and loads each image sequentially in the gallery.
+function loadNextImage(artworks) {
+	// Base case (unconventional)
+	if (currentIndex >= artworks.length) return;
 
-	const imgName = imgFilenames[currentIndex];
+	const artwork = artworks[currentIndex];
+	const title = artwork.title;
+	const price = artwork.price;
+	const dimensions = artwork.dimensions;
+	const type = artwork.type;
+	const date = artwork.date;
+	const url = artwork.url;
 
-	// images-div contains the img and hover-text
+	// For each image, we create: <div class="images-div"> </div>
+	// This div element will be used to contain img and hover-text
 	const imagesDiv = document.createElement("div");
 	imagesDiv.classList.add("images-div");
 
 	const img = document.createElement("img");
-	// data-src to store the image URL until it needs to be loaded
-	img.setAttribute("data-src", `images/${imgName}`);
 	img.style.objectFit = "contain";
-	img.onclick = () => openModal(`images/${imgName}`);
-
+	img.onclick = () => openModal(`${url}`);
 	imagesDiv.appendChild(img);
 
-	// add imagesDiv to shortest column
+	// At this point we have:
+	// <div class="images-div">
+	// 		<img style="object-fit: contain">
+	// </div>
+	// And the "onclick" handler is solely in JS and not the HTML.
+
+	// Append imagesDiv to the shortest column
 	const minIndex = columnHeights.indexOf(Math.min(...columnHeights));
+	// This appends each image to the "dream" div, as shown in the HTML.
 	columns[minIndex].appendChild(imagesDiv);
 
-	// create hover-text
+	// This creates the text that appears on PC when you 
+	// hover your mouse over an image in the gallery.
 	const textOverlay = document.createElement("div");
 	textOverlay.classList.add("hover-text");
-	textOverlay.innerHTML = "Title: ?<br> Price: ?";
-
+	textOverlay.innerHTML = `Title: ${title}<br> Price: $${price.toFixed(2)}`;
 	imagesDiv.appendChild(textOverlay);
+
+	// At this point we have:
+	// <div class="images-div">
+	// 		<img style="object-fit: contain">
+	// 		<div class="hover-text">Title: (title)<br> Price: (price)</div>
+	// </div>
+
+	// ----------------------------------------------------------------------------
 
 	// imagesDiv.addEventListener("touchstart", () => {
 	// 	img.style.filter = "brightness(50%)";
@@ -74,35 +91,47 @@ function loadNextImage() {
 	// 	textOverlay.style.opacity = "0";
 	// });
 
-	// create hover-text
+	// ----------------------------------------------------------------------------
+
+	// This creates the text that appears on mobile underneath each gallery image.
 	const artworkInfo = document.createElement("div");
 	artworkInfo.classList.add("artwork-info");
-	artworkInfo.innerHTML = "<strong>Title</strong><br> ? x ? centimeters, oil (?) on canvas, 2024 (?)";
-
+	artworkInfo.innerHTML = `<strong>Title: ${title}</strong>
+							 <br>
+							 <strong>Price: $${price.toFixed(2)}</strong>
+							 <br>
+							 ${dimensions}, ${type}, ${date}`;
 	imagesDiv.appendChild(artworkInfo);
+
+	// At this point we have:
+	// <div class="images-div">
+	// 		<img data-src="images/xxx.jpeg" style="object-fit: contain">
+	// 		<div class="hover-text">Title: ?<br> Price: ?</div>
+	// 		<div class="artwork-info">(the innerHTML stuff above)</div>
+	// </div>
 
 	const observer = new IntersectionObserver(
 		(entries) => {
 			entries.forEach((entry) => {
 				if (entry.isIntersecting) {
-					// load image when it enters viewport
+					// Load image when it enters viewport
 					const image = entry.target;
-					image.src = image.getAttribute("data-src");
+					image.src = `${url}`;
 					image.onload = () => {
-						// add animation after image is loaded
+						// // Add animation after image is loaded
 						// image.classList.add("fade-in");
 
-						// get height of image and update column heights
+						// Get height of image and update column heights
 						requestAnimationFrame(() => {
 							const renderedHeight = image.offsetHeight;
 							columnHeights[minIndex] += renderedHeight;
-							console.log(`Image: ${imgName}, Height: ${renderedHeight}px`);
+							console.log(`Image: ${url}, Height: ${renderedHeight}px`);
 							currentIndex++;
-							setTimeout(loadNextImage, 20);
+							setTimeout(() => loadNextImage(artworks), 20);
 						});
 					};
 
-					// stop observing after loading image
+					// Stop observing after loading image
 					observer.unobserve(image);
 				}
 			});
@@ -112,11 +141,19 @@ function loadNextImage() {
 		}
 	);
 
-	// start observing image
+	// Start observing image
 	observer.observe(img);
 }
 
-loadNextImage();
+async function parseArtworks() {
+	const res = await fetch("artworks.json");
+	const data = await res.json();
+
+	loadNextImage(data.artworks);
+}
+
+// START
+parseArtworks();
 
 function openModal(imgSrc) {
 	const modal = document.querySelector(".modal");
@@ -136,5 +173,5 @@ function closeModal() {
 	setTimeout(() => {
 		modal.classList.remove("closing");
 		modal.style.display = "none";
-	}, 250); // needs to be slightly faster than the modalClose animation time
+	}, 250); // Needs to be slightly faster than the modalClose animation time
 }
