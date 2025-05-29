@@ -93,12 +93,10 @@ function loadNextImage(artworks) {
 
 	// ----------------------------------------------------------------------------
 
-	// This creates the text that appears on mobile underneath each gallery image.
+	// This creates the text that appears ON MOBILE underneath each gallery image.
 	const artworkInfo = document.createElement("div");
 	artworkInfo.classList.add("artwork-info");
-	artworkInfo.innerHTML = `<strong>Title: ${title}</strong>
-							 <br>
-							 <strong>Price: $${price.toFixed(2)}</strong>
+	artworkInfo.innerHTML = `Title: ${title}, Price: $${price.toFixed(2)}
 							 <br>
 							 ${dimensions}, ${type}, ${date}`;
 	imagesDiv.appendChild(artworkInfo);
