@@ -70,7 +70,7 @@ function loadNextImage(artworks) {
 	// hover your mouse over an image in the gallery.
 	const textOverlay = document.createElement("div");
 	textOverlay.classList.add("hover-text");
-	textOverlay.innerHTML = `Title: ${title}<br> Price: $${price.toFixed(2)}`;
+	textOverlay.innerHTML = `Title: ${title}<br> Price: ${price}`;
 	imagesDiv.appendChild(textOverlay);
 
 	// At this point we have:
@@ -96,7 +96,7 @@ function loadNextImage(artworks) {
 	// This creates the text that appears ON MOBILE underneath each gallery image.
 	const artworkInfo = document.createElement("div");
 	artworkInfo.classList.add("artwork-info");
-	artworkInfo.innerHTML = `Title: ${title}, Price: $${price.toFixed(2)}
+	artworkInfo.innerHTML = `Title: ${title}, Price: ${price}
 							 <br>
 							 ${dimensions}, ${type}, ${date}`;
 	imagesDiv.appendChild(artworkInfo);
